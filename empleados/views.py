@@ -19,7 +19,7 @@ class VistaEmpleado(APIView):
         if serialized.is_valid():
             serialized.save()
             return Response(
-                status=status.HTTP_201_OK,
+                status=status.HTTP_200_OK,
                 data=serialized.data
             )
         else:

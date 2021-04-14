@@ -1,10 +1,12 @@
 from django.shortcuts import render
 from rest_framework import status
+from rest_framework.permissions import AllowAny
 from rest_framework.views import APIView, Response
 from puestos.models import Puesto
 from puestos.serializers import PuestoSerializer
 
 class VistaPuesto(APIView):
+
     def get(self, request):
         puesto = Puesto.objects.all()
         serialized = PuestoSerializer(puesto, many=True)
@@ -26,6 +28,7 @@ class VistaPuesto(APIView):
             return Response(status=status.HTTP_400_BAD_REQUEST)
 
 class DetallePuesto(APIView):
+
     def get(self, request, id):
         try:
             puesto = Puesto.objects.get(id=id)

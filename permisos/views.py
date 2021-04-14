@@ -34,7 +34,7 @@ class DetallePemiso(APIView):
         except Permiso.DoesNotExist:
             return Response(status=status.HTTP_400_BAD_REQUEST)
 
-        serialized = CrearPermisoSerializer(permiso)
+        serialized = PermisoSerializer(permiso)
 
         return Response(
             status=status.HTTP_200_OK,

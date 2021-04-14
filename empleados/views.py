@@ -15,12 +15,11 @@ class VistaEmpleado(APIView):
 
     def post(self, request):
         serialized = CrearEmpleadoSerializer(data=request.data)
-        print(serialized)
 
         if serialized.is_valid():
             serialized.save()
             return Response(
-                status=status.HTTP_200_OK,
+                status=status.HTTP_201_OK,
                 data=serialized.data
             )
         else:
